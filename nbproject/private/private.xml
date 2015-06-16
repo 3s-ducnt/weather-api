@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/thuannd/projects/weather-api/lib/models/weathers.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/helpers/db_helper.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/controllers/application_controller.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/models/application_model.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/controllers/home_controller.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/route/main.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/models/cities.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/models/weather_forecast.rb</file>
-            <file>file:/home/thuannd/projects/weather-api/lib/helpers/application_helper.rb</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
