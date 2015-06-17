@@ -16,9 +16,9 @@ module Sinatra
                                   pretty_print_xml: true,
                                   wsdl: 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL')
             client.operations
-            response_data = client.call(:get_city_forecast_by_zip,
+            response = client.call(:get_city_forecast_by_zip,
                                         :message => {'tns:ZIP' => zip})
-            response_data.body
+            response.to_hash[:get_city_forecast_by_zip_response][:get_city_forecast_by_zip_result]
         end
     end
     

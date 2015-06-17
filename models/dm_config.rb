@@ -13,7 +13,7 @@ class DmConfig < Sinatra::Base
     #configuration for development environment
     configure :development do
         DataMapper::Logger.new($stdout, :debug)
-        DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/api_weather.db")
+        DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/weather_development.db")
         DataMapper.finalize
         DataMapper.auto_upgrade!
     end

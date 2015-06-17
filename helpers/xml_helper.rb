@@ -51,13 +51,15 @@ module Sinatra
         end
         
         # Check XML response data from backend service
-        # @param doc [String] XML data
+        # @param doc (optional) [String] XML data
+        # @param hash_data (optional) [Hash] response data
         # @return [Boolean], [Hash] return true if City found.
         # Return false and message if city not found
-        def check_response_data (doc)
+        def check_response_data (doc = nil, hash_data = nil)
             return_message = {}
             check = true
-            if doc.css("Success").text == "false"
+            if (doc != nil && doc.css("Success").text == "false") || 
+                  (hash_data != nil && !hash_data[:success])
                 check = false
                 return_message[:status] = 'failed'
                 return_message[:message] = 'City could not be found in our '\
