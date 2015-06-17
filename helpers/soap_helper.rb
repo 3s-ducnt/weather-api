@@ -10,12 +10,15 @@ module Sinatra
 
         # SOAP function to get city forecast by zip code
         # @param zip [String] the city zip code
-        # @return [String] XML response data
+        # @return [Hash] response data
         def get_city_forecast_by_zip_soap (zip)
-            client = Savon.client(log:true, pretty_print_xml: true, wsdl: 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL')
+            client = Savon.client(log:true, 
+                                  pretty_print_xml: true,
+                                  wsdl: 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL')
             client.operations
-            client.call(":get_city_forecast_by_zip", "message: { 'tns:ZIP': #{zip}}")
-            #response.body
+            response_data = client.call(:get_city_forecast_by_zip,
+                                        :message => {'tns:ZIP' => zip})
+            response_data.body
         end
     end
     

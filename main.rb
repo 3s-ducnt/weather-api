@@ -8,6 +8,7 @@ require 'json'
 require './models/dm_config'
 require './helpers/init'
 require 'nokogiri'
+require 'dm-serializer'
 
 class Main < Sinatra::Base
     helpers Sinatra::DbHelpers
@@ -20,60 +21,47 @@ class Main < Sinatra::Base
     end
     
     get "/GetWeatherForecastByZip/:zip" do
-        return_message = {}
-        city = find_weather_by_zip(params[:zip])
-        if city
-            # weather forecast data is existed in DB then return data to client
-            return_message[:status] = 'success'
-            return_message[:data] = city
-        else
-            # call REST API to get weather forecast by zip code
-            doc = Nokogiri.XML(get_city_forecast_by_zip_res(params[:zip]))
-            
-            # TODO common method
-            if doc.css("Success") == "false"
-                return_message[:status] = 'failed'
-                return_message[:message] = 'City could not be found in our weather data. Please contact CDYNE for more Details.'
-                return return_message.to_json
-            end
-            
-            # insert city data to cities table
-            new_city = City.create(build_city(doc))
-                        
-            forcasts = doc.css("Forecast")
-            forcasts.each do |forecast|
-                # insert weather forecast data
-                WeatherForecast.create(build_weather_forecast(forecast, new_city.id))
-            end
-            
-            # call SOAP API to get weather forecast by Zip code
-            doc = Nokogiri.XML(get_city_forecast_by_zip_soap(params[:zip]))
-            
-            # TODO common method
-            if doc.css("Success") == "false"
-                return_message[:status] = 'failed'
-                return_message[:message] = 'City could not be found in our weather data. Please contact CDYNE for more Details.'
-                return return_message.to_json
-            end
-            
-            # update data to DB if result is success, return JSON response
-            city = City.first(city: doc.css("City"))
-            city.update(build_city(doc))
-            
-            forcasts = doc.css("Forecast")
-            forcasts.each do |forecast|
-                # insert weather forecast data
-                weather_forecast = WeatherForecast.first(date: forecast.css("Date"))
-                weather_forecast.update(build_weather_forecast(forecast, city.id))
-            end
-            
-            # return failed if result failed
-            
-            # return success
-            return_message[:status] = 'success'
-            return_message[:data] = backend_response # method build JSON data to response
-        end
-        return_message.to_json 
+        return_message = get_weather_data(params[:zip])
+        
+        return return_message.to_json if !return_message.empty?
+        
+        # call REST API to get weather forecast by zip code
+        doc = Nokogiri.XML(get_city_forecast_by_zip_res(params[:zip]))
+
+        # Check response result
+        check, return_message = check_response_data(doc)
+
+        # City not found
+        return return_message.to_json if !check
+
+        # insert city data to cities table
+        new_city = create_city(doc)
+        
+        puts "City has just created #{new_city.id}"
+        
+        # insert weather forecast to DB
+        create_weather_forecast(doc, new_city.id)
+
+        # call SOAP API to get weather forecast by Zip code
+        weather_data = get_city_forecast_by_zip_soap(params[:zip])
+        
+        # Check response result
+        #check, return_message = check_response_data(doc)
+        
+        # City not found
+        #return return_message.to_json if !check
+
+        # update city data to DB
+        #updated_city = update_city(doc)
+        
+        #logger.info("City has just updated #{city.id}")
+
+        # update weather forecast to DB
+        #update_weather_forecast(doc, updated_city.id)
+
+        # Get data from DB and return
+        return_message = get_weather_data(params[:zip])
+        return_message.to_json
     end
     
     not_found do

@@ -1,4 +1,5 @@
 # City model store city information
+# City has [one to many] relation ship with WeatherForecast model
 
 class City
     include DataMapper::Resource
@@ -10,5 +11,5 @@ class City
     property :created, DateTime
     property :updated, DateTime
   
-    has n, :weather_forecasts
+    has n, :weather_forecasts  # each city has many forecast data
 end
