@@ -1,2 +1,4 @@
+require 'sinatra/base'
 require './weather_api'
-run Sinatra::Application
+
+map('/') { run WeatherApi }

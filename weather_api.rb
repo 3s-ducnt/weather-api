@@ -79,6 +79,3 @@ class WeatherApi < Sinatra::Base
     end
     
 end
-
-WeatherApi.run!
-
