@@ -22,6 +22,6 @@ class DmConfig < Sinatra::Base
     configure :production do
         DataMapper.setup(:default, ENV['DATABASE_URL'])
         DataMapper.finalize
-        DataMapper.auto_upgrade!
+        #DataMapper.auto_upgrade!
     end
 end
