@@ -9,10 +9,10 @@
             <file>file:/home/ducnt/projects/weather-api/helpers/res_helper.rb</file>
             <file>file:/home/ducnt/projects/weather-api/helpers/init.rb</file>
             <file>file:/home/ducnt/projects/weather-api/helpers/soap_helper.rb</file>
-            <file>file:/home/ducnt/projects/weather-api/models/dm_config.rb</file>
             <file>file:/home/ducnt/projects/weather-api/models/weather.rb</file>
+            <file>file:/home/ducnt/projects/weather-api/models/dm_config.rb</file>
+            <file>file:/home/ducnt/projects/weather-api/weather_api.rb</file>
             <file>file:/home/ducnt/projects/weather-api/helpers/xml_helper.rb</file>
-            <file>file:/home/ducnt/projects/weather-api/main.rb</file>
         </group>
     </open-files>
 </project-private>
