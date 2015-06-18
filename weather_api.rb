@@ -3,7 +3,6 @@
 # and open the template in the editor.
 
 require 'sinatra/base'
-require 'sinatra/reloader'
 require 'json'
 require './models/dm_config'
 require './helpers/init'
