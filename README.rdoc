@@ -40,11 +40,11 @@ Other technology:
 == Usage:
 
 Request: 
-1. Direct link: 
+    1. Direct link: 
 
         https://weather-api-3s.herokuapp.com/GetWeatherForecastByZip/94304
 	
-2. Apigee (oauth v2.0 authentication):
+    2. Apigee (oauth v2.0 authentication):
         http://3si-test.apigee.net/v1/weather-api/GetWeatherForecastByZip/94304
 
     User must register account and App at https://enterprise.apigee.com
@@ -54,7 +54,7 @@ Request:
 
 Response data:
 
-	{
+        {
 	"status":"success",
 	"data":
 	[
