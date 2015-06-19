@@ -8,11 +8,12 @@ module Sinatra
         
         # Build City data as Hash
         # @param doc [String] the document which is parsed from XML
+        # @param zip_code [String] City zip code
         # @return city data (Hash)
-        def build_city (doc)
+        def build_city (doc, zip_code)
             city = Hash.new
             # prepare city data
-            city["zip_code"] = params[:zip]
+            city["zip_code"] = zip_code
             city["state"] = doc.css("State").text
             city["city"] = doc.css("City").text
             city["weather_station_city"] = doc.css("WeatherStationCity").text

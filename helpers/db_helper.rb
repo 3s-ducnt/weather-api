@@ -17,9 +17,10 @@ module Sinatra
         
         # Create city data in DB
         # @param doc [String] XML response data from Weather backend service
+        # @param zip_code [String] City zip code
         # @return [City] the newly created Resource instance
-        def create_city (doc)
-            City.create(build_city(doc))
+        def create_city (doc, zip_code)
+            City.create(build_city(doc, zip_code))
         end
         
         # Create weather master data in DB
@@ -39,7 +40,7 @@ module Sinatra
                 # insert weather data
                 weather = Weather.get(forecast.css("WeatherID").text)
                 
-                weather = Weather.create(build_weather(forecast)) if !weather
+                weather = create_weather (forecast) if !weather
                 
                 # insert weather forecast data
                 WeatherForecast.create(build_weather_forecast(forecast, 
@@ -73,10 +74,10 @@ module Sinatra
         # Create weather data include: City, WeatherForeCast, Weather
         # @param doc [String] XML response data from Weather backend service
         # @return [Boolean] true if create success, false if create failed
-        def create_weather_data (doc)
+        def create_weather_data (doc, zip_code)
             City.transaction do
                 # insert city data to cities table
-                new_city = create_city(doc)
+                new_city = create_city(doc, zip_code)
 
                 logger.info("City has just created with city id is #{new_city.id}")
 

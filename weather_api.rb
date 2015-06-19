@@ -36,7 +36,7 @@ class WeatherApi < Sinatra::Base
             return return_message.to_json if !check
             
             # Register weather forecast into DB
-            create_weather_data(doc)
+            create_weather_data(doc, params[:zip])
             
             # call SOAP API to get weather forecast by Zip code
             response = get_city_forecast_by_zip_soap(params[:zip])
@@ -77,5 +77,7 @@ class WeatherApi < Sinatra::Base
     get "/" do
         "API not found!"
     end
-    
+
 end
+
+WeatherApi.run!
