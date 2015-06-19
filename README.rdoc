@@ -40,11 +40,17 @@ Other technology:
 == Usage:
 
 Request: 
-1. Direct link: https://weather-api-3s.herokuapp.com/GetWeatherForecastByZip/94304
-	
-2. Required Oauth v2.0 authentication. User must register account and APP at https://enterprise.apigee.com
+1. Direct link: 
 
-  	RestClient.get 'http://3si-test.apigee.net/v1/weather_api/forecastbyzip', {:params => {:zip => 94305}}
+        https://weather-api-3s.herokuapp.com/GetWeatherForecastByZip/94304
+	
+2. Apigee (oauth v2.0 authentication):
+        http://3si-test.apigee.net/v1/weather-api/GetWeatherForecastByZip/94304
+
+    User must register account and App at https://enterprise.apigee.com
+    Client App request access token from 3si-test.apigee.net
+    Get access token which is returned from above step and use each time request API.
+  	
 
 Response data:
 
