@@ -43,7 +43,7 @@ Request:
     1. Direct link: 
 
         https://weather-api-3s.herokuapp.com/GetWeatherForecastByZip/94304
-	
+
     2. Apigee (oauth v2.0 authentication):
         http://3si-test.apigee.net/v1/weather-api/GetWeatherForecastByZip/94304
 
@@ -55,46 +55,46 @@ Request:
 Response data:
 
         {
-	"status":"success",
-	"data":
-	[
-	{"city":
-	{"id":11,"zip_code":"94304","weather_station_city":"Mountain View","city":"Palo Alto","state":"CA","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00"}
-	},
-	{"forecast_day1":{"id":71,"temp_morning_low":null,"temp_day_time_high":"57","precipiation_night_time":"","precipiation_day_time":"00","date":"2013-01-03","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day1":
-	{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day2":{"id":72,"temp_morning_low":"41","temp_day_time_high":"58","precipiation_night_time":"00","precipiation_day_time":"00","date":"2013-01-04","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day2":
-	{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day3":{"id":73,"temp_morning_low":"41","temp_day_time_high":"59","precipiation_night_time":"00","precipiation_day_time":"10","date":"2013-01-05","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day3":
-	{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day4":{"id":74,"temp_morning_low":"44","temp_day_time_high":"56","precipiation_night_time":"20","precipiation_day_time":"20","date":"2013-01-06","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day4":{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day5":{"id":75,"temp_morning_low":"41","temp_day_time_high":"60","precipiation_night_time":"10","precipiation_day_time":"10","date":"2013-01-07","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day5":
-	{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day6":{"id":76,"temp_morning_low":"42","temp_day_time_high":"60","precipiation_night_time":"10","precipiation_day_time":"10","date":"2013-01-08","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day6":
-	{"id":2,"description":"Partly Cloudy","image_url":null}
-	},
-	{"forecast_day7":{"id":77,"temp_morning_low":"43","temp_day_time_high":"58","precipiation_night_time":"10","precipiation_day_time":"10","date":"2013-01-09","created":"2015-06-18T00:08:41+00:00","updated":"2015-06-18T00:08:44+00:00","city_id":11,"weather_id":2}
-	},
-	{"weather_day7":{"id":2,"description":"Partly Cloudy","image_url":null}
-	}]
-	}
+          "status":"success",
+          "data": [
+                  {
+                    "city":
+                      {
+                       "id":11,
+                       "zip_code":"94304",
+                       "weather_station_city":"Mountain View",
+                       "city":"Palo Alto",
+                       "state":"CA",
+                       "created":"2015-06-18T00:08:41+00:00",
+                       "updated":"2015-06-18T00:08:44+00:00"
+                      }
+                  },
+                 {
+                    "forecast_day1":
+                      {
+                        "id":71,
+                        "temp_morning_low":null,
+                        "temp_day_time_high":"57",
+                        "precipiation_night_time":"",
+                        "precipiation_day_time":"00",
+                        "date":"2013-01-03",
+                        "created":"2015-06-18T00:08:41+00:00",
+                        "updated":"2015-06-18T00:08:44+00:00",
+                        "city_id":11,
+                        "weather_id":2
+                       }
+                 },
+                {
+                   "weather_day1":
+                       {
+                         "id":2,
+                         "description":"Partly Cloudy",
+                         "image_url":null
+                       }
+                }
+            ......
+            ]
+        }
 
 
 
