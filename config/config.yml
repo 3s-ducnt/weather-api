@@ -1,0 +1,40 @@
+## Define all configuration item for using in application
+---
+# REST URL to Weather back end service
+rest_url: "http://wsf.cdyne.com/WeatherWS/Weather.asmx/GetCityForecastByZIP"
+
+# SOAP URL of Weather back end service
+soap_url: "http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"
+
+# SOAP param: City zip code
+zip_param: "tns:ZIP"
+
+## Define message using in the application =================================
+# Can not get the city with the zip specified.
+city_not_found: "City could not be found in our weather data. 
+                Please contact CDYNE for more Details."
+
+# Can not connect to network
+network_error: "Can not connect to Weather service due to Network problem."
+
+# General purpose error message
+general_error: "Error occurred while getting weather forecast data."
+
+# Not found API
+api_not_found: "API not found!"
+
+# HTTP code success
+internal_error_cd: 500
+
+# HTTP code error
+service_unavailable_cd: 503
+
+#city not found error code
+bad_request_cd: 400
+
+#success status
+success: "success"
+
+#failed status
+failed: "failed"
+

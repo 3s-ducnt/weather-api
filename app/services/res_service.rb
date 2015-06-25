@@ -2,20 +2,16 @@
 # Service of http://wsf.cdyne.com/WeatherWS/Weather.asmx
 # Function of backend service will be used is [GetCityForecastByZIP]
 
-require 'sinatra/base'
 require 'rest-client'
 
-module Sinatra
-    module ResHelpers
-
+class ResService
+    class << self
         # REST function to get city forecast by zip code
         # @param zip [String] the city zip code
         # @return [String] XML response data
         def get_city_forecast_by_zip_res (zip)
-            RestClient.get 'http://wsf.cdyne.com/WeatherWS/Weather.asmx/GetCityForecastByZIP', 
-                            {:params => {:ZIP => "#{zip}"}}
+            # Client request to weather service
+            RestClient.get APP_CONFIG["rest_url"], {params: {ZIP: "#{zip}"}}
         end
     end
-    
-    helpers ResHelpers
 end

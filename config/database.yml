@@ -1,0 +1,10 @@
+## Database configuration
+---
+# Development environment Database URL
+development:
+    db_type: "sqlite3://"
+    db_name: "weather_development.db"
+
+# Production environment Database URL
+production:
+    database_url: "DATABASE_URL"
