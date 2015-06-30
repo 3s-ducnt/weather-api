@@ -19,7 +19,7 @@ class DmConfig < Sinatra::Base
 
     #configuration for production environment
     configure :production do
-        DataMapper.setup(:default, "#{ENV[DB_CONFIG["production"]["database_url"]]}")
+        DataMapper.setup(:default, ENV["#{DB_CONFIG["production"]["database_url"]}"])
         DataMapper.finalize
         DataMapper.auto_migrate!
     end
