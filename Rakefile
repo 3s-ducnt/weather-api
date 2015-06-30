@@ -7,6 +7,7 @@
 require 'rubygems'
 require 'rake'
 require 'rake/clean'
+require 'erb'
 require 'rubygems/package_task'
 require 'rdoc/task'
 require 'rake/testtask'

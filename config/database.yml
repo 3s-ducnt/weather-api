@@ -7,4 +7,4 @@ development:
 
 # Production environment Database URL
 production:
-    database_url: "DATABASE_URL"
+    database_url: <%= ENV['DATABASE_URL'] %>
