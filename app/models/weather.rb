@@ -3,7 +3,7 @@
 
 class Weather
     include DataMapper::Resource
-    property :id, Integer, :key => true
+    property :id, Integer, :key => true, :required => true
     property :description, String
     
     has n, :weather_forecasts # each weather has many weather forecast
@@ -30,5 +30,6 @@ class Weather
             end
             weather
         end
+        private :build_weather
     end
 end

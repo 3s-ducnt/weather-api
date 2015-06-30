@@ -48,7 +48,7 @@ class WeatherService
         def get_weather_service_soap (zip)
             # call SOAP API to get weather forecast by Zip code
             response = SoapService.get_city_forecast_by_zip_soap(zip)
-            puts response
+
             check_response_data(nil, response)
 
             # Update weather data into DB
@@ -147,5 +147,7 @@ class WeatherService
                 raise StandardError, APP_CONFIG["city_not_found"]
             end
         end
+        private :check_response_data, :create_weather_data, :update_weather_data,
+                :create_weather_forecast, :get_weather_forecast, :update_weather_forecast
     end
 end

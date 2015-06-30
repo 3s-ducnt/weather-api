@@ -4,7 +4,7 @@
 class City
     include DataMapper::Resource
     property :id, Serial
-    property :zip_code, String
+    property :zip_code, String, :required => true
     property :weather_station_city, String
     property :city, String
     property :state, String
@@ -63,5 +63,6 @@ class City
             city["updated"] = Time.now.strftime("%Y/%m/%d %H:%M:%S")
             city
         end
+        private :build_city
     end
 end
