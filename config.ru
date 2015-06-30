@@ -1,4 +1,4 @@
 require 'sinatra/base'
-require './weather_api'
+require './app/controllers/weather_api'
 
 map('/') { run WeatherApi }
